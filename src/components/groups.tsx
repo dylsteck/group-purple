@@ -57,7 +57,8 @@ export default function Groups(){
                     <p className="text-xl">Choose your settings on Juicebox</p>
                 </div>
             </div>
-                <iframe className="w-[100%] rounded-xl" src="https://juicebox.money/create" width="1000" height="700" ref={(f) => setFrame(f)}> </iframe>
+                {/* for iframe: ref={(f) => setFrame(f)} */ }
+                <iframe className="w-[100%] rounded-xl" src="https://juicebox.money/create" width="1000" height="700"> </iframe>
             </div>
         </div>
     )

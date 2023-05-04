@@ -18,7 +18,6 @@ const { chains, provider, webSocketProvider } = configureChains(
 
 const { connectors } = getDefaultWallets({
   appName: 'Group Purple',
-  projectId: process.env.PROJECT_ID,
   chains
 });
  

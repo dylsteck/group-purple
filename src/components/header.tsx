@@ -6,11 +6,12 @@ interface HeaderProps {
 }
 
 export default function Header({ name }: HeaderProps) {
+  const its = "It's";
   return (
     <nav className="p-10">
       <div className="float-left">
         <p className="text-xl font-md text-white/60">{name}</p>
-        <p>It's like PartyBid, but for PurpleDAO</p>
+        <p>{its} like PartyBid, but for PurpleDAO</p>
       </div>
       <div className="float-right">
         <ConnectButton />
