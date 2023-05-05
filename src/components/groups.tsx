@@ -7,7 +7,7 @@ import Iframe from 'react-iframe'
 
 export default function Groups(){
 
-    const [frame, setFrame] = useState(null))
+    const [frame, setFrame] = useState(null);
 
 
     useEffect(() => {

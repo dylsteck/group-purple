@@ -40,7 +40,7 @@ interface GroupProps {
             {/* Note: Further style & animate when we walk thru */ }
             {Object.keys(data).map((key) => {
                 return(
-                    <div>
+                    <div key={`data-${key}`}>
                         <p>
                             {`${key}: ${data[key]}`}
                         </p>
