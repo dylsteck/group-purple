@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -8,6 +9,7 @@ interface LayoutProps {
 export default function Layout ({ children }: LayoutProps){
     return(
         <>
+        <GoogleAnalytics trackPageViews gaMeasurementId={process.env.GA_MEASUREMENT_ID} />
         <Head>
             <title>Group Purple</title>
         </Head>
