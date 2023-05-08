@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import * as IPFS from 'ipfs-core';
 
 
 interface GroupProps {
@@ -7,31 +8,46 @@ interface GroupProps {
   
   export default function Group({ id }: GroupProps) {
 
+    console.log("ID", id);
+
     const [data, setData] = useState(null);
 
-    const juicebox_subgraph_endpoint = "https://api.studio.thegraph.com/query/30654/mainnet-dev/6.2.0"
+    const juiceboxSubgraphEndpoint =
+  "https://api.studio.thegraph.com/query/30654/mainnet-dev/6.2.0";
+    const ipfsEndpoint = 'https://ipfs.io/ipfs'
 
     const query = `{
-        projects(where:{id: ${id}}){
-          # Participants are wallets which have held a project's token at any point in time
-          # Only 100 participants will be returned
-          participants(orderBy: totalPaid, orderDirection: desc){
-            totalPaid
-            balance
-          }
-        }
-      }`
+      projects(where:{projectId: ${parseInt(id)}}){
+        metadataUri
+        id
+        createdAt
+        currentBalance
+      }
+    }`;
 
-    async function getProjectData(){
-        const json = await fetch(juicebox_subgraph_endpoint, {
-            headers: { 'Content-Type': 'application/json' },
-            method: 'POST',
-            body: JSON.stringify({ query }),
-        }).then(res => res.json());
-        setData(json.json());
-        // for(const {beneficiary, amount, amountUSD} of json.data.payEvents)
-        //     console.log(`${amount / 1e18} ETH paid worth ${amountUSD / 1e18} USD with beneficiary ${beneficiary}.`
+    const repoPath = 'ipfs-' + Math.random();
+    const ipfs = (async () => {
+      return await IPFS.create({ repo: repoPath });
+    })();
+
+    async function getProjectData() {
+      const json = await fetch(juiceboxSubgraphEndpoint, {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ query }),
+      }).then((res) => res.json());
+      const jsonData = json.data.projects;
+      //
     }
+    
+    useEffect(() => {
+      getProjectData();
+    }, []);
+
+
+    useEffect(() => {
+      getProjectData()
+    }, [])
 
     return (
       <div>
