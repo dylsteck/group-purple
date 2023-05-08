@@ -46,8 +46,10 @@ export default function Home() {
         })}>
           <Layout>
             <Header name="Win a Purple NFT with your friends" />
-            { typeof address === 'undefined' ? <Marquee name="Group Purple" /> : <Group id="503" /> }
+            { /* typeof address === 'undefined' ? <Marquee name="Group Purple" /> : <Group id="503" /> */ }
             {/* typeof address === 'undefined' ? <Marquee name="Group Purple" /> : <Groups /> */}
+            <UserGroups />
+            <Marquee name={typeof address === 'undefined' ? 'Group Purple': 'Your Groups'}/>
           </Layout>
       </RainbowKitProvider>
     </WagmiConfig>
