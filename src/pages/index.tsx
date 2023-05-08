@@ -1,7 +1,6 @@
 import '@rainbow-me/rainbowkit/styles.css';
 
 import Header from '@/components/header'
-import Group from '@/components/group'
 import Groups from '@/components/groups'
 import UserGroups from '@/components/usergroups';
 import Layout from '@/components/layout'
@@ -47,8 +46,7 @@ export default function Home() {
         })}>
           <Layout>
             <Header name="Win a Purple NFT with your friends" />
-            <UserGroups />
-            <Groups />
+            {typeof address === 'undefined' ? <Groups /> : <UserGroups />}
             <Marquee name={typeof address === 'undefined' ? 'Group Purple': 'Your Groups'}/>
           </Layout>
       </RainbowKitProvider>
