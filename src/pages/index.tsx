@@ -3,6 +3,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import Header from '@/components/header'
 import Group from '@/components/group'
 import Groups from '@/components/groups'
+import UserGroups from '@/components/usergroups';
 import Layout from '@/components/layout'
 import Marquee from '@/components/marquee'
 import { darkTheme, RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit'
@@ -46,9 +47,8 @@ export default function Home() {
         })}>
           <Layout>
             <Header name="Win a Purple NFT with your friends" />
-            { /* typeof address === 'undefined' ? <Marquee name="Group Purple" /> : <Group id="503" /> */ }
-            {/* typeof address === 'undefined' ? <Marquee name="Group Purple" /> : <Groups /> */}
             <UserGroups />
+            <Groups />
             <Marquee name={typeof address === 'undefined' ? 'Group Purple': 'Your Groups'}/>
           </Layout>
       </RainbowKitProvider>

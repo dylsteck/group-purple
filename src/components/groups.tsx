@@ -1,24 +1,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Iframe from 'react-iframe'
-
-// export function Create(){
-
-// }
 
 export default function Groups(){
 
-    const [frame, setFrame] = useState(null);
-
-
-    useEffect(() => {
-        //console.log(frame?.src)
-        // if (frame?.src.startsWith("https://juicebox.money/@")) {
-        // console.log("URL starts with https://juicebox.money/@");
-        // } else {
-        // console.log("URL does not start with https://juicebox.money/@");
-        // }
-    }, [frame])
     
     return(
         <div className="mt-[10vh]">
